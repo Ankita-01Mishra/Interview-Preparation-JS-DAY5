@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY-5</title>
+</head>
+<style>
+    h2{
+          text-decoration: underline;
+          color: rgb(163, 75, 12);
+          
+      }
+      h3{
+          font-size: 19px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: darkblue;
+      }
+      pre{
+        font-size: 18px;
+       font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  
+      }
+      </style>
+<body>
+    <h2>JS Interview Preparation Day 5</h2>
+    <h3>1. what is Hoisting?</h3>
+    <pre>
+Ans-->  Hoisting is a process where interpreter appears in JS to move the declaration at the top of the code .
+                Due to hoisting variable with var can be accessible before declaration with a default value undefined.  
+                let and const is also hoisted in the TDZ , TDZ prevents browser to access before initialization.
+                function with name is hoisted
+                function expression and class expression is not hoisted.     
+    </pre>
+    <h3>2. What is a Temporal Dead Zone?</h3>
+    <pre>
+Ans-->  The satring of the execution block in which the let and const is declared,till the variable is initialized,called TDZ of the variable.
+            Variables with let and const are hoisted in temporal dead zone, which prevents them being accessible.      
+    </pre>
+    <h3>3. What is DOM</h3>
+    <pre>
+Ans--> DOM is a programming interface for HTML and XML documents. It represents a document as a tree of objects.
+            It allows you to manipulate the content and structure of document by mosifying the properties of these objects.       
+    </pre>
+    <h3>4. Explain passed by value and passed by reference</h3>
+    <pre>
+Ans--> Passed by value means value will be passed to a function as a copy means if we change anything inside the function, it will not effect the original function.
+                    function increment(x){
+                        x++;
+                    }
+                    let y=5;
+                    increment(y);
+                    console.log(y);    
+            Passed by reference means reference will be passed to a function as an argument of the original function rather than the copy . It means if we change any thing in the function,original value will also be changed.
+                function increment2(obj){
+                    obj.value++
+                }
+                let obj={value:100}
+                increment2(obj)
+                console.log(obj.value);            
+    </pre>
+    <h3>5.Write code to explain map and filter in arrays</h3>
+    <pre>
+Ans--> map() applies to a given function on each element of the array and returns a updated array.
+            arr=[2,3,4,5]
+            const newArr=arr.map(n=>n*2)
+            console.log(newArr);//[4,6,8,10]  
+            filter method takes each element of an array and applies conditional statement against it. If the condition returns true  then operation will take place 
+            arr=[2,3,4,5]
+            const newEvenArr=arr.filter(item=>item%2==0)
+            console.log(newEvenArr); //[2,4]
+            
+    </pre>
+    <h3>6.What is the purpose of async/await keywords?</h3>
+    <pre>
+Ans-->i) To make the readable
+            ii) To make a better approach then callback or promise
+           iii) Error handling is simplier
+            iv)Debugging is easier       
+    </pre>
+    <h3>7.Give an example of async/await</h3>
+    <pre>
+function setTimeoutPromise(delay) {
+    return new Promise((resolve, reject) => {
+      if (delay < 0) return reject("Delay must be greater than 0")
+  
+      setTimeout(() => {
+        resolve(`You waited ${delay} milliseconds`)
+      }, delay)
+    })
+  }
+  doStuff()
+  async function doStuff() {
+    const msg1 = await setTimeoutPromise(1000)
+    console.log(msg1)
+    console.log("First Timeout")
+  
+    const msg2 = await setTimeoutPromise(2000)
+    console.log(msg2)
+    console.log("Second Timeout")
+  }        
+    </pre>
+
+    <script src="main.js"></script>
+</body>
+</html>
